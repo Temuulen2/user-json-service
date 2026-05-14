@@ -35,7 +35,7 @@ public class AuthMiddleware implements Filter {
 
         // Public routes that don't need a token
         String path = req.getRequestURI();
-        if (path.equals("/health") || path.startsWith("/actuator")) {
+        if (path.equals("/health") || path.startsWith("/actuator") || path.startsWith("/auth/")) {
             chain.doFilter(request, response);
             return;
         }
